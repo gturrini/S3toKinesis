@@ -2,14 +2,15 @@
 var AWS = require('aws-sdk');
 
 // AWS CONFIG FROM ENV
-const awsAccessKey = process.env.AWS_ACCESS_KEY;
-const awsSecretKey = process.env.AWS_ACCESS_SECRET;
-const awsRegion = process.env.AWS_REGION_ID;
+//const awsAccessKey = process.env.AWS_ACCESS_KEY;
+//const awsSecretKey = process.env.AWS_ACCESS_SECRET;
+//const awsRegion = process.env.AWS_REGION_ID;
 const bucketName = process.env.AWS_S3_BUCKET_NAME;
 const streamName = process.env.AWS_KINESIS_STREAM_NAME;
 
 var errCode = 0
 
+/*
 if (typeof awsAccessKey === 'undefined') {
     errCode = errCode + 1
 }
@@ -19,6 +20,7 @@ if (typeof awsSecretKey === 'undefined') {
 if (typeof awsRegion === 'undefined') {
     errCode = errCode + 100
 }
+*/
 if (typeof bucketName === 'undefined') {
     errCode = errCode + 1000
 }
@@ -45,9 +47,9 @@ switch ( errCode ) {
     default:
         let ts = getTimestamp();
         console.log(`${ts} UNABLE TO START...`)
-        if ( errCode >0 ) { console.log(`${ts} environment variable AWS_ACCESS_KEY is not configured. Please provide a valid one.`)}
-        if ( errCode >9 ) { console.log(`${ts} environment variable AWS_ACCESS_SECRET is not configured. Please provide a valid one.`)}
-        if ( errCode >99 ) { console.log(`${ts} environment variable AWS_REGION_ID is not configured. Please provide a valid one.`)}
+        //if ( errCode >0 ) { console.log(`${ts} environment variable AWS_ACCESS_KEY is not configured. Please provide a valid one.`)}
+        //if ( errCode >9 ) { console.log(`${ts} environment variable AWS_ACCESS_SECRET is not configured. Please provide a valid one.`)}
+        //if ( errCode >99 ) { console.log(`${ts} environment variable AWS_REGION_ID is not configured. Please provide a valid one.`)}
         if ( errCode >999 ) { console.log(`${ts} environment variable AWS_S3_BUCKET_NAME is not configured. Please provide a valid one.`)}
         if ( errCode >9999 ) { console.log(`${ts} environment variable AWS_KINESIS_STREAM_NAME is not configured. Please provide a valid one.`)}
         break;
