@@ -30,6 +30,7 @@ if (typeof streamName === 'undefined') {
 
 var continuationToken = null;
 
+/*
 AWS.config.update(
     {
         accessKeyId: awsAccessKey,
@@ -37,6 +38,7 @@ AWS.config.update(
         region: awsRegion
     }
 );
+*/
 var s3 = new AWS.S3();
 var kinesis = new AWS.Kinesis();
 
